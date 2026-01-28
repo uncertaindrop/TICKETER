@@ -1371,4 +1371,10 @@ if __name__ == "__main__":
     logger.info("Screenshots will be saved to: screenshots/")
     logger.info("="*80)
     
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    # Cloud deployment: bind to 0.0.0.0 and use PORT env var
+    port = int(os.environ.get("PORT", 5000))
+    host = os.environ.get("HOST", "0.0.0.0")
+    debug = os.environ.get("DEBUG", "False").lower() == "true"
+    
+    logger.info(f"Starting server on {host}:{port} (debug={debug})")
+    app.run(host=host, port=port, debug=debug)
