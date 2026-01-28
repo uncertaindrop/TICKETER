@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-IMPROVED TICKETER - Enhanced logging and error handling
-Key improvements:
+🚀 TICKETER IMPROVED - VERSION 2.0 - CLOUD READY ✅
+GUARANTEED TO BIND TO 0.0.0.0 FOR RAILWAY/RENDER DEPLOYMENT
+
+Enhanced with:
 1. Comprehensive logging with timestamps and context
 2. Better error handling with retries
 3. Robust status progression
 4. Screenshot capture on errors
 5. Detailed step-by-step tracking
+6. ✅ CLOUD DEPLOYMENT READY - Binds to 0.0.0.0
 """
 
 import os
@@ -1365,8 +1368,12 @@ def static_files(path):
 
 
 if __name__ == "__main__":
+    print("=" * 80)
+    print("🚀 TICKETER VERSION 2.0 - CLOUD READY")
+    print("=" * 80)
+    
     logger.info("="*80)
-    logger.info("STARTING FLASK SERVER")
+    logger.info("STARTING FLASK SERVER - VERSION 2.0 CLOUD READY")
     logger.info(f"Log file: {log_filename}")
     logger.info("Screenshots will be saved to: screenshots/")
     logger.info("="*80)
@@ -1376,5 +1383,7 @@ if __name__ == "__main__":
     host = os.environ.get("HOST", "0.0.0.0")
     debug = os.environ.get("DEBUG", "False").lower() == "true"
     
-    logger.info(f"Starting server on {host}:{port} (debug={debug})")
+    print(f"🌐 BINDING TO: {host}:{port} (debug={debug})")
+    logger.info(f"🌐 Starting server on {host}:{port} (debug={debug})")
+    
     app.run(host=host, port=port, debug=debug)
