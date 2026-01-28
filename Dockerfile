@@ -40,6 +40,11 @@ RUN wget -q -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-
 # Verify Chrome installation
 RUN google-chrome --version
 
+# Set environment variables for production
+ENV HOST=0.0.0.0
+ENV DEBUG=False
+ENV PYTHONUNBUFFERED=1
+
 # Set display port to avoid crash
 ENV DISPLAY=:99
 
