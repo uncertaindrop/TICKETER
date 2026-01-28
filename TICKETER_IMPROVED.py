@@ -1358,7 +1358,7 @@ def api_create_tickets():
 @app.route("/")
 def index():
     """Serve the UI"""
-    return send_from_directory('.', "TICKETHELPER.html")
+    return send_from_directory('.', "TICKETHELPER_CLOUD.html")
 
 
 @app.route("/<path:path>")
