@@ -1452,8 +1452,16 @@ def health():
 
 @app.route("/")
 def index():
-    """Serve the UI"""
-    return send_from_directory('.', "TICKETHELPER.html")
+    """Serve the UI - tries TICKETHELPER.html first, then TICKETHELPER_CLOUD.html"""
+    import os
+    # Try local version first (for local development)
+    if os.path.exists("TICKETHELPER.html"):
+        return send_from_directory('.', "TICKETHELPER.html")
+    # Fallback to cloud version
+    elif os.path.exists("TICKETHELPER_CLOUD.html"):
+        return send_from_directory('.', "TICKETHELPER_CLOUD.html")
+    else:
+        return jsonify({"error": "No HTML interface found. Please upload TICKETHELPER.html or TICKETHELPER_CLOUD.html"}), 404
 
 
 @app.route("/<path:path>")
